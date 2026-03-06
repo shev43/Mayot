@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAYOT — Партнерський інвест-проєкт</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content wrapper">
+        <p class="eyebrow">MAYOT · Партнерська презентація</p>
+        <h1>Інвест-проєкт, який можна зрозуміти за 10 хвилин</h1>
+        <p class="subtitle">
+          Нижче — коротка структура проєкту та інтерактивні калькулятори для площ,
+          виручки, собівартості та прибутку. Партнер може змінити будь-які параметри
+          й одразу побачити, як вони впливають на ціну та рентабельність.
+        </p>
+        <div class="actions">
+          <a class="btn" href="research.html">Відкрити сторінку deep research</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrapper grid">
+      <section class="card">
+        <h2>1) Логіка інвест-моделі</h2>
+        <ul>
+          <li><strong>Площа</strong> визначає обсяг продукту/послуги.</li>
+          <li><strong>Ціна за м²</strong> + <strong>коефіцієнт локації</strong> формують підсумкову ціну.</li>
+          <li><strong>Собівартість</strong> + <strong>маркетинг</strong> + <strong>операційні</strong> = загальні витрати.</li>
+          <li><strong>Прибуток</strong> = виручка − витрати.</li>
+          <li><strong>ROI</strong> = прибуток / інвестиції × 100%.</li>
+        </ul>
+      </section>
+
+      <section class="card" id="areaPricingCalculator">
+        <h2>2) Калькулятор площі та ціноутворення</h2>
+        <div class="inputs">
+          <label>
+            Загальна площа (м²)
+            <input type="number" id="area" min="1" step="1" value="1200" />
+          </label>
+          <label>
+            Базова ціна (₴/м²)
+            <input type="number" id="basePrice" min="1" step="10" value="18500" />
+          </label>
+          <label>
+            Коефіцієнт локації
+            <input type="number" id="locationFactor" min="0.5" max="2" step="0.01" value="1.15" />
+          </label>
+          <label>
+            Коефіцієнт попиту
+            <input type="number" id="demandFactor" min="0.5" max="2" step="0.01" value="1.08" />
+          </label>
+        </div>
+
+        <div class="formula">
+          <code>Підсумкова ціна за м² = Базова ціна × Коеф. локації × Коеф. попиту</code>
+          <code>Виручка = Площа × Підсумкова ціна за м²</code>
+        </div>
+
+        <div class="results">
+          <article>
+            <p>Підсумкова ціна за м²</p>
+            <strong id="finalSqmPrice">—</strong>
+          </article>
+          <article>
+            <p>Прогнозна виручка</p>
+            <strong id="revenue">—</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" id="investmentCalculator">
+        <h2>3) Калькулятор витрат, прибутку та ROI</h2>
+        <div class="inputs">
+          <label>
+            Інвестиції (₴)
+            <input type="number" id="investment" min="1" step="10000" value="12000000" />
+          </label>
+          <label>
+            Собівартість (₴/м²)
+            <input type="number" id="costPerSqm" min="1" step="10" value="9800" />
+          </label>
+          <label>
+            Маркетинг (% від виручки)
+            <input type="number" id="marketingPercent" min="0" max="100" step="0.1" value="7.5" />
+          </label>
+          <label>
+            Операційні (% від виручки)
+            <input type="number" id="operatingPercent" min="0" max="100" step="0.1" value="11" />
+          </label>
+        </div>
+
+        <div class="formula">
+          <code>Загальні витрати = (Собівартість × Площа) + (Маркетинг + Операційні)</code>
+          <code>ROI = (Прибуток / Інвестиції) × 100%</code>
+        </div>
+
+        <div class="results three">
+          <article>
+            <p>Загальні витрати</p>
+            <strong id="totalCosts">—</strong>
+          </article>
+          <article>
+            <p>Орієнтовний прибуток</p>
+            <strong id="profit">—</strong>
+          </article>
+          <article>
+            <p>ROI</p>
+            <strong id="roi">—</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="card notes">
+        <h2>4) Як використовувати з партнером</h2>
+        <ol>
+          <li>Почніть із блоку площі: узгодьте реалістичний діапазон м².</li>
+          <li>Покажіть, як локація та попит змінюють ціну без «магії».</li>
+          <li>Окремо проговоріть структуру витрат (собівартість/маркетинг/операційні).</li>
+          <li>Зафіксуйте сценарії: консервативний, базовий, оптимістичний.</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="wrapper footer">
+      <p>
+        Демо-версія на основі партнерського брифу MAYOT. За потреби можу додати
+        графіки сценаріїв, таймлайн реалізації та експорт у PDF.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

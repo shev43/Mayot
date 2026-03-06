@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAYOT — Deep Research</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content wrapper">
+        <p class="eyebrow">MAYOT · Deep Research</p>
+        <h1>Друга сторінка для партнера: ключові висновки дослідження</h1>
+        <p class="subtitle">
+          Це окремий екран для матеріалів з deep-research-report: тези, ринкові
+          драйвери, ризики, сценарії та фінансовий ефект. Додано інтерактивний
+          сценарний калькулятор для швидкого порівняння 3 підходів.
+        </p>
+        <div class="actions">
+          <a class="btn" href="index.html">← Назад до головної сторінки</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrapper grid">
+      <section class="card">
+        <h2>Коротко про дослідження</h2>
+        <ul>
+          <li><strong>Попит:</strong> зростає у форматах з прозорою економікою і швидким запуском.</li>
+          <li><strong>Конкуренція:</strong> перевага в стандартизованому продукті та керованій собівартості.</li>
+          <li><strong>Масштабування:</strong> ключовий драйвер — повторюваність юніт-економіки.</li>
+          <li><strong>Ризики:</strong> ціна залучення, коливання витрат, темп продажів.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Інтерактивний сценарний калькулятор</h2>
+        <div class="inputs">
+          <label>
+            Площа (м²)
+            <input id="rArea" type="number" min="1" value="1200" />
+          </label>
+          <label>
+            Базова ціна (₴/м²)
+            <input id="rPrice" type="number" min="1" value="18500" />
+          </label>
+          <label>
+            Базова собівартість (₴/м²)
+            <input id="rCost" type="number" min="1" value="9800" />
+          </label>
+          <label>
+            Інвестиція (₴)
+            <input id="rInvestment" type="number" min="1" value="12000000" />
+          </label>
+        </div>
+
+        <div class="formula">
+          <code>Сценарій = база × коеф. ціни × коеф. витрат × коеф. попиту</code>
+          <code>ROI = (Прибуток / Інвестиція) × 100%</code>
+        </div>
+
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Сценарій</th>
+                <th>Виручка</th>
+                <th>Витрати</th>
+                <th>Прибуток</th>
+                <th>ROI</th>
+              </tr>
+            </thead>
+            <tbody id="scenarioTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card notes">
+        <h2>Як презентувати партнеру</h2>
+        <ol>
+          <li>Почни з базового сценарію: він має бути найбільш реалістичним.</li>
+          <li>Покажи downside (консервативний): партнер бачить контроль ризику.</li>
+          <li>Покажи upside (оптимістичний): партнер бачить потенціал росту.</li>
+          <li>Домовтесь про пороговий ROI для прийняття рішення.</li>
+        </ol>
+      </section>
+    </main>
+
+    <script src="research.js"></script>
+  </body>
+</html>
