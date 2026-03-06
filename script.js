@@ -26,7 +26,7 @@ const percent = new Intl.NumberFormat('uk-UA', {
 });
 
 function num(el) {
-  return Number(el.value) || 0;
+  return Number(el?.value) || 0;
 }
 
 function recalc() {
@@ -51,7 +51,7 @@ function recalc() {
   const profit = revenue - totalCosts;
   const roi = investment > 0 ? (profit / investment) * 100 : 0;
 
-  ids.finalSqmPrice.textContent = money.format(finalSqmPrice) + ' / м²';
+  ids.finalSqmPrice.textContent = `${money.format(finalSqmPrice)} / м²`;
   ids.revenue.textContent = money.format(revenue);
   ids.totalCosts.textContent = money.format(totalCosts);
   ids.profit.textContent = money.format(profit);

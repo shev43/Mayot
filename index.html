@@ -3,131 +3,179 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MAYOT — Партнерський інвест-проєкт</title>
+    <title>MAYOT — Партнерська сайт-презентація</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero">
-      <div class="hero__content wrapper">
-        <p class="eyebrow">MAYOT · Партнерська презентація</p>
-        <h1>Інвест-проєкт, який можна зрозуміти за 10 хвилин</h1>
-        <p class="subtitle">
-          Нижче — коротка структура проєкту та інтерактивні калькулятори для площ,
-          виручки, собівартості та прибутку. Партнер може змінити будь-які параметри
-          й одразу побачити, як вони впливають на ціну та рентабельність.
-        </p>
+    <header class="topbar">
+      <div class="wrapper topbar__inner">
+        <a class="brand" href="#hero">MAYOT</a>
+        <nav class="menu" aria-label="Навігація по слайдах">
+          <a href="#problem">Проблема</a>
+          <a href="#solution">Рішення</a>
+          <a href="#model">Модель</a>
+          <a href="#financials">Фінанси</a>
+          <a href="#roadmap">План</a>
+          <a href="#cta">Партнерство</a>
+        </nav>
       </div>
     </header>
 
-    <main class="wrapper grid">
-      <section class="card">
-        <h2>1) Логіка інвест-моделі</h2>
-        <ul>
-          <li><strong>Площа</strong> визначає обсяг продукту/послуги.</li>
-          <li><strong>Ціна за м²</strong> + <strong>коефіцієнт локації</strong> формують підсумкову ціну.</li>
-          <li><strong>Собівартість</strong> + <strong>маркетинг</strong> + <strong>операційні</strong> = загальні витрати.</li>
-          <li><strong>Прибуток</strong> = виручка − витрати.</li>
-          <li><strong>ROI</strong> = прибуток / інвестиції × 100%.</li>
-        </ul>
+    <main>
+      <section id="hero" class="slide hero">
+        <div class="wrapper">
+          <p class="eyebrow">MAYOT · Partner Brief v2</p>
+          <h1>Сайт-презентація для партнерів та інвесторів</h1>
+          <p class="lead">
+            Структуровано як короткий пітч: проблема → рішення → юніт-економіка →
+            план запуску. Додавайте свої цифри й одразу показуйте сценарії.
+          </p>
+          <a class="btn" href="#financials">Відкрити фінансовий блок</a>
+        </div>
       </section>
 
-      <section class="card" id="areaPricingCalculator">
-        <h2>2) Калькулятор площі та ціноутворення</h2>
-        <div class="inputs">
-          <label>
-            Загальна площа (м²)
-            <input type="number" id="area" min="1" step="1" value="1200" />
-          </label>
-          <label>
-            Базова ціна (₴/м²)
-            <input type="number" id="basePrice" min="1" step="10" value="18500" />
-          </label>
-          <label>
-            Коефіцієнт локації
-            <input type="number" id="locationFactor" min="0.5" max="2" step="0.01" value="1.15" />
-          </label>
-          <label>
-            Коефіцієнт попиту
-            <input type="number" id="demandFactor" min="0.5" max="2" step="0.01" value="1.08" />
-          </label>
-        </div>
-
-        <div class="formula">
-          <code>Підсумкова ціна за м² = Базова ціна × Коеф. локації × Коеф. попиту</code>
-          <code>Виручка = Площа × Підсумкова ціна за м²</code>
-        </div>
-
-        <div class="results">
-          <article>
-            <p>Підсумкова ціна за м²</p>
-            <strong id="finalSqmPrice">—</strong>
-          </article>
-          <article>
-            <p>Прогнозна виручка</p>
-            <strong id="revenue">—</strong>
+      <section id="problem" class="slide">
+        <div class="wrapper two-col">
+          <div>
+            <h2>1. Проблема ринку</h2>
+            <ul>
+              <li>Низька прозорість щодо економіки проєктів для партнерів.</li>
+              <li>Складно швидко порівнювати сценарії по локаціях.</li>
+              <li>Більшість презентацій не показують логіку формування прибутку.</li>
+            </ul>
+          </div>
+          <article class="panel">
+            <h3>Що важливо партнеру</h3>
+            <p>
+              Бачити не лише «ідею», а й керовані драйвери: попит, ціна,
+              собівартість, маркетинг та ROI.
+            </p>
           </article>
         </div>
       </section>
 
-      <section class="card" id="investmentCalculator">
-        <h2>3) Калькулятор витрат, прибутку та ROI</h2>
-        <div class="inputs">
-          <label>
-            Інвестиції (₴)
-            <input type="number" id="investment" min="1" step="10000" value="12000000" />
-          </label>
-          <label>
-            Собівартість (₴/м²)
-            <input type="number" id="costPerSqm" min="1" step="10" value="9800" />
-          </label>
-          <label>
-            Маркетинг (% від виручки)
-            <input type="number" id="marketingPercent" min="0" max="100" step="0.1" value="7.5" />
-          </label>
-          <label>
-            Операційні (% від виручки)
-            <input type="number" id="operatingPercent" min="0" max="100" step="0.1" value="11" />
-          </label>
-        </div>
-
-        <div class="formula">
-          <code>Загальні витрати = (Собівартість × Площа) + (Маркетинг + Операційні)</code>
-          <code>ROI = (Прибуток / Інвестиції) × 100%</code>
-        </div>
-
-        <div class="results three">
-          <article>
-            <p>Загальні витрати</p>
-            <strong id="totalCosts">—</strong>
-          </article>
-          <article>
-            <p>Орієнтовний прибуток</p>
-            <strong id="profit">—</strong>
-          </article>
-          <article>
-            <p>ROI</p>
-            <strong id="roi">—</strong>
+      <section id="solution" class="slide">
+        <div class="wrapper two-col">
+          <div>
+            <h2>2. Рішення MAYOT</h2>
+            <ul>
+              <li>Єдина операційна модель із понятними параметрами.</li>
+              <li>Швидка адаптація під конкретну локацію та формат партнерства.</li>
+              <li>Інтерактивний формат: всі ключові метрики оновлюються в реальному часі.</li>
+            </ul>
+          </div>
+          <article class="panel">
+            <h3>Формула цінності</h3>
+            <p>Швидкість рішень + прогнозованість фінансів + контроль ризиків.</p>
           </article>
         </div>
       </section>
 
-      <section class="card notes">
-        <h2>4) Як використовувати з партнером</h2>
-        <ol>
-          <li>Почніть із блоку площі: узгодьте реалістичний діапазон м².</li>
-          <li>Покажіть, як локація та попит змінюють ціну без «магії».</li>
-          <li>Окремо проговоріть структуру витрат (собівартість/маркетинг/операційні).</li>
-          <li>Зафіксуйте сценарії: консервативний, базовий, оптимістичний.</li>
-        </ol>
+      <section id="model" class="slide">
+        <div class="wrapper">
+          <h2>3. Логіка інвест-моделі</h2>
+          <div class="cards">
+            <article class="panel">
+              <h3>1) Дохід</h3>
+              <p>Площа × (Базова ціна × Коефіцієнт локації × Коефіцієнт попиту)</p>
+            </article>
+            <article class="panel">
+              <h3>2) Витрати</h3>
+              <p>Собівартість + маркетинг + операційні витрати.</p>
+            </article>
+            <article class="panel">
+              <h3>3) Повернення</h3>
+              <p>Прибуток та ROI показують ефективність вкладень партнера.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="financials" class="slide">
+        <div class="wrapper">
+          <h2>4. Фінансовий симулятор</h2>
+          <p class="muted">Змініть параметри нижче для консервативного, базового або оптимістичного сценарію.</p>
+
+          <div class="inputs">
+            <label>Площа (м²)
+              <input type="number" id="area" min="1" step="1" value="1200" />
+            </label>
+            <label>Базова ціна (₴/м²)
+              <input type="number" id="basePrice" min="1" step="10" value="18500" />
+            </label>
+            <label>Коеф. локації
+              <input type="number" id="locationFactor" min="0.5" max="2" step="0.01" value="1.15" />
+            </label>
+            <label>Коеф. попиту
+              <input type="number" id="demandFactor" min="0.5" max="2" step="0.01" value="1.08" />
+            </label>
+            <label>Інвестиції (₴)
+              <input type="number" id="investment" min="1" step="10000" value="12000000" />
+            </label>
+            <label>Собівартість (₴/м²)
+              <input type="number" id="costPerSqm" min="1" step="10" value="9800" />
+            </label>
+            <label>Маркетинг (% від виручки)
+              <input type="number" id="marketingPercent" min="0" max="100" step="0.1" value="7.5" />
+            </label>
+            <label>Операційні (% від виручки)
+              <input type="number" id="operatingPercent" min="0" max="100" step="0.1" value="11" />
+            </label>
+          </div>
+
+          <div class="results">
+            <article class="panel">
+              <p>Підсумкова ціна за м²</p>
+              <strong id="finalSqmPrice">—</strong>
+            </article>
+            <article class="panel">
+              <p>Прогнозна виручка</p>
+              <strong id="revenue">—</strong>
+            </article>
+            <article class="panel">
+              <p>Загальні витрати</p>
+              <strong id="totalCosts">—</strong>
+            </article>
+            <article class="panel">
+              <p>Орієнтовний прибуток</p>
+              <strong id="profit">—</strong>
+            </article>
+            <article class="panel">
+              <p>ROI</p>
+              <strong id="roi">—</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap" class="slide">
+        <div class="wrapper two-col">
+          <div>
+            <h2>5. План реалізації</h2>
+            <ol class="timeline">
+              <li><strong>Етап 1:</strong> Узгодження локації та партнерської структури.</li>
+              <li><strong>Етап 2:</strong> Фіналізація бюджету й запуск операційної підготовки.</li>
+              <li><strong>Етап 3:</strong> Маркетинговий старт і вихід на планові показники.</li>
+            </ol>
+          </div>
+          <article class="panel">
+            <h3>Ключовий результат</h3>
+            <p>Прозорий план із контрольними точками та зрозумілими KPI для партнера.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="cta" class="slide cta">
+        <div class="wrapper">
+          <h2>6. Формат партнерства</h2>
+          <p class="lead">
+            Готові пройти ваш сценарій на цій моделі та узгодити параметри під
+            конкретну локацію.
+          </p>
+          <a class="btn" href="#hero">Повернутися на початок</a>
+        </div>
       </section>
     </main>
-
-    <footer class="wrapper footer">
-      <p>
-        Демо-версія на основі партнерського брифу MAYOT. За потреби можу додати
-        графіки сценаріїв, таймлайн реалізації та експорт у PDF.
-      </p>
-    </footer>
 
     <script src="script.js"></script>
   </body>
